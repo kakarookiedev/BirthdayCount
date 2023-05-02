@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace BirthdayCount
 {
@@ -22,7 +22,7 @@ namespace BirthdayCount
             d[1] = int.Parse(DD);
 
 
-            DateTime nextBirthday;
+            /*DateTime nextBirthday;
 
             if (new DateTime(dateToday.Year, d[0], d[1]) < dateToday)
             {
@@ -33,9 +33,13 @@ namespace BirthdayCount
                 nextBirthday = new DateTime(dateToday.Year, d[0], d[1]);
             }
 
-            int daysLeft = (nextBirthday - dateToday).Days;
+            int daysLeft = (nextBirthday - dateToday).Days;*/
 
-            Console.WriteLine($"THERE ARE {daysLeft} DAYS LEFT TO YOUR NEXT BIRTHDAY");
+            DateTime daysLeft = new DateTime(dateToday.Year, d[0], d[1]);
+
+            TimeSpan dif = dateToday.Subtract(daysLeft);
+
+            Console.WriteLine($"THERE ARE {dif.ToString("dd")} DAYS LEFT TO YOUR NEXT BIRTHDAY");
 
         }
     }
