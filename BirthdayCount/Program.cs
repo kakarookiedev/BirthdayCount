@@ -15,31 +15,26 @@ namespace BirthdayCount
             Console.WriteLine("INPUT YOUR BIRTHDAY: (DD)");
             string DD = Console.ReadLine();
             Console.Clear();
-            Console.WriteLine(dateToday.Year+"-"+MM+"-"+DD);
+            Console.WriteLine("BIRTHDAY DATE: "+MM+"/"+DD);
 
             int[] d = new int[2];
             d[0] = int.Parse(MM);
             d[1] = int.Parse(DD);
 
-
-            /*DateTime nextBirthday;
-
+            TimeSpan dif = TimeSpan.Zero;
+            DateTime daysLeft;
             if (new DateTime(dateToday.Year, d[0], d[1]) < dateToday)
             {
-                nextBirthday = new DateTime(dateToday.Year + 1, d[0], d[1]);
-            }
-            else
+                daysLeft = new DateTime(dateToday.Year + 1, d[0], d[1]);
+                dif = dateToday.Subtract(daysLeft);
+            }else
             {
-                nextBirthday = new DateTime(dateToday.Year, d[0], d[1]);
+                daysLeft = new DateTime(dateToday.Year, d[0], d[1]);
+                dif = dateToday.Subtract(daysLeft);
             }
-
-            int daysLeft = (nextBirthday - dateToday).Days;*/
-
-            DateTime daysLeft = new DateTime(dateToday.Year, d[0], d[1]);
-
-            TimeSpan dif = dateToday.Subtract(daysLeft);
 
             Console.WriteLine($"THERE ARE {dif.ToString("dd")} DAYS LEFT TO YOUR NEXT BIRTHDAY");
+
 
         }
     }
